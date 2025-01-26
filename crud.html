@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User List</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container my-5">
+    <div class="mb-3">
+      <input type="text" id="nameInput" placeholder="Name" class="form-control mb-2">
+      <input type="email" id="emailInput" placeholder="Email" class="form-control mb-2">
+      <input type="file" id="imageInput" class="form-control mb-2">
+      <button class="btn btn-primary" onclick="addItem()">Add User</button>
+    </div>
+    <ul id="itemList" class="list-group"></ul>
+  </div>
+
+  <script>
+    let users = [];
+
+    const renderList = () => {
+      const itemList = document.getElementById('itemList');
+      itemList.innerHTML = users.map((user, index) => `
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <div class="d-flex align-items-center">
+            <img src="${user.imageURL}" alt="" class="item-image" style="width: 50px; height: 50px; object-fit: cover; border-radius: 50%; margin-right: 10px;">
+            <div>
+              <p>${user.name}<br>${user.email}</p>
+            </div>
+          </div>
+          <div class="btn-group">
+            <button class="btn btn-warning btn-sm" onclick="editItem(${index})">EDIT</button>
+            <button class="btn btn-danger btn-sm" onclick="deleteItem(${index})">DELETE</button>
+          </div>
+        </li>
+      `).join('');
+    };
+
+    const addItem = () => {
+      const name = document.getElementById('nameInput').value.trim();
+      const email = document.getElementById('emailInput').value.trim();
+      const imageFile = document.getElementById('imageInput').files[0];
+
+      if (!name || !email || !imageFile) return alert('Please fill in all fields');
+
+      const reader = new FileReader();
+      reader.onload = () => {
+        const imageURL = reader.result;
+        users.push({ name, email, imageURL });
+        renderList();
+        clearInputs();
+      };
+      reader.readAsDataURL(imageFile);
+    };
+
+    const deleteItem = (index) => {
+      users.splice(index, 1);
+      renderList();
+    };
+
+    const editItem = (index) => {
+      const user = users[index];
+      document.getElementById('nameInput').value = user.name;
+      document.getElementById('emailInput').value = user.email;
+      // For simplicity, editing image not implemented
+      deleteItem(index);
+    };
+
+    const clearInputs = () => {
+      document.getElementById('nameInput').value = '';
+      document.getElementById('emailInput').value = '';
+      document.getElementById('imageInput').value = '';
+    };
+  </script>
+</body>
+</html>
+ 
