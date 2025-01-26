@@ -1,0 +1,160 @@
+h4 {
+    color: red;
+    font-size: xx-large;
+    font-weight: 700;
+    text-shadow: 5px 5px 7px rgb(212, 15, 15);
+}
+
+@media  {
+    
+}
+
+.circle {
+    /* background-color: red; */
+    height: 40px;
+    width: 40px;
+    border: 10px solid red;
+    border-radius: 50%;
+    position: relative;
+    left: 165px;
+    bottom: 10px;
+    animation: animate 0.5s linear infinite;
+}
+
+@keyframes animate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    /* text-decoration: underline overline red;
+    text-decoration-thickness: 3px; */
+    color: white;
+    text-decoration: none;
+    transition: all;
+    font-size: 20px;
+}
+
+header {
+    background-color: black;
+    display: flex;
+    /* justify-content: space-around; */
+    flex-direction: row;
+    height: 20px;
+    padding: 50px;
+    margin: auto;
+}
+
+ul li {
+    display: inline-block;
+    margin-left: 70px;
+    /* justify-content: space-around; */
+}
+
+a:hover {
+    text-decoration: underline overline red;
+    text-decoration-thickness: 3px;
+    transition: 0.2s ease-in-out .5s;
+}
+
+body {
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background-position: center; */
+    background-image: url(https://hips.hearstapps.com/hmg-prod/images/barfield-house-tour-gramercy-park-bedroom-jpg-1618419012.jpg);
+}
+
+.content {
+    /* display: flex; */
+    /* justify-content: center; */
+    display: inline-block;
+    /* width: 100%; */
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    text-align: center;
+    color: #fff;
+    background-color: black;
+    border-radius: 25px;
+    padding: 20px;
+}
+
+.content h1 {
+    font-size: 40px;
+    text-align: center;
+}
+
+.content {
+    text-align: center;
+}
+
+button {
+    width: 100px;
+    padding: 10px 0px;
+    background: transparent;
+    color: white;
+    border: 2px solid #fff;
+    margin: 10px 10px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+button:hover {
+    background-color: #fff;
+    color: black;
+    transition: 1s ease-in-out;
+    border: none;
+    /* height: auto; */
+
+}
+
+.outer {
+    border-radius: 10px;
+    height: 500px;
+    width: 700px;
+    border: 2px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(https://png.pngtree.com/thumb_back/fw800/background/20230519/pngtree-3d-colorful-animation-image_2599579.jpg);
+}
+
+.inner {
+    height: 300px;
+    width: 500px;
+    background-color: white;
+    border-radius: 10px;
+    /* backdrop-filter: blur(10px); */
+
+}
+
+.inner h1 {
+    color: rgba(255, 255, 255, 0.171);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff6e;
+    backdrop-filter: blur(10px);
+}
